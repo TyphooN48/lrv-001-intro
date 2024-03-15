@@ -1,0 +1,12 @@
+{
+    "name": "andrew/laravel-01",
+    "description": "Домашнее задание по Composer",
+    "authors": [
+        {
+            "name": "Andrey Burlakov"
+        }
+    ],
+    "require-dev": {
+        "psr/log": "^3.0"
+    }
+}

@@ -43,7 +43,7 @@ class GroupController extends Controller
      */
     public function show(string $id)
     {
-        $groupStudent = optional(Group::find($id))->getAllStudents;
+        $groupStudent = Group::findOrFail($id)->groups;
         $groupInfo = Group::find($id);
 
         return view('group.group', [

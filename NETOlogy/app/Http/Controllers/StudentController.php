@@ -13,12 +13,11 @@ class StudentController extends Controller
      */
     public function index($group, $student)
     {
-        $groupStudent = optional(Student::find($student))->getStudentGroup;
-        $studentInfo = Student::find($student);
+        $student = Student::with('students')->findOrFail($student);
 
         return view('student.index', [
-            'group' => $groupStudent,
-            'student' => $studentInfo
+            'group' => $student->students,
+            'student' => $student
         ]);
     }
 

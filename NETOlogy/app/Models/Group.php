@@ -11,7 +11,7 @@ class Group extends Model
     protected $table = 'groups';
     protected $guarded = [];
 
-    public function getAllStudents()
+    public function groups()
     {
         return $this->hasMany(Student::class, 'group_id', 'id');
     }

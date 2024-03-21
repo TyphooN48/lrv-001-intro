@@ -14,7 +14,10 @@ Route::get('/groups/{id}/students/create', [\App\Http\Controllers\StudentControl
 Route::post('/groups/{id}/students', [\App\Http\Controllers\StudentController::class, 'store']);
 Route::get('/groups/{group}/students/{student}', [\App\Http\Controllers\StudentController::class, 'index']);
 
-Route::get('/clear-cache', function() {
-    $clearCache = Artisan::call('cache:clear');
-    $configCache = Artisan::call('config:cache');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/user', [\App\Http\Controllers\UserInfo::class, 'index']);
 });

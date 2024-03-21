@@ -11,7 +11,7 @@ class Student extends Model
     protected $table = 'students';
     protected $guarded = [];
 
-    public function getStudentGroup()
+    public function students()
     {
         return $this->hasOne(Group::class, 'id', 'group_id');
     }
